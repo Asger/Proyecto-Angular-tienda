@@ -1,0 +1,30 @@
+<div class="row" *ngIf="producto$ | async as producto; else loading">
+    <div class="col-md-12">
+        <div class="card text-center" >
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img
+                    [src]="producto.imagenProducto"
+                    class="img-fluid"
+                />
+                <a href="">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                {{producto.nombreProducto}}
+                <!-- <h5 class="card-title">Card title</h5> -->
+                <p class="card-text">
+                    {{producto.informacionProducto}}
+                </p>
+                <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #loading>
+    <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>    
+</ng-template>

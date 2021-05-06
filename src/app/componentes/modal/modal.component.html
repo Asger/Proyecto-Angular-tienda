@@ -1,0 +1,11 @@
+<h2>{{data.message}} </h2>
+<div>
+    <div *ngIf="data.content; else showNuevoForm">
+        <app-editar-producto [producto]="data.content"></app-editar-producto>
+    </div>
+
+    <ng-template #showNuevoForm>
+        <app-nuevo-producto></app-nuevo-producto>
+    </ng-template>
+</div>
+

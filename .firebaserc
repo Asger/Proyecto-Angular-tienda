@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "autenticacion-angular-5dfd2": {
+      "hosting": {
+        "firebaseauthimg": [
+          "autenticacion-angular-5dfd2"
+        ]
+      }
+    }
+  }
+}

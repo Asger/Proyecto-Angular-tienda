@@ -1,0 +1,141 @@
+<!--Main Navigation-->
+    <header>
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+    
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/']" >Home</a>
+                </li>
+                </ul>
+                <!-- Left links -->
+        
+                <!-- Search form -->
+                <!-- <form class="d-flex input-group w-auto">
+                <input
+                    type="search"
+                    class="form-control"
+                    placeholder="Type query"
+                    aria-label="Search"
+                />
+                <button
+                    class="btn btn-outline-primary"
+                    type="button"
+                    data-mdb-ripple-color="dark"
+                >
+                    Search
+                </button>
+                </form> -->
+            </div>
+            
+            <!-- Right links -->
+            <ul class="navbar-nav d-flex align-items-center flex-row" *ngIf="user$ | async as user; else login">
+
+                <li class="nav-item" *ngIf="user">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/admin']" >Admin</a>
+                </li>
+                
+                <!-- <li class="nav-item">
+                    <a class="nav-link me-3 py-1" href="#" data-mdb-toggle="tooltip" title="Create">
+                    <i class="fas fa-video"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link me-3 py-1" href="#" data-mdb-toggle="tooltip" title="YouTube apps">
+                    <i class="fas fa-th"></i>
+                    </a>
+                </li>
+                <li class="nav-item me-3">
+                    <a class="nav-link py-1" href="#" data-mdb-toggle="tooltip" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    </a>
+                </li> -->
+        
+                <!-- Avatar -->
+                <li class="nav-item">
+                    <a class="nav-link ">{{user.email}} </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center py-1" href="#"
+                    id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <img src={{user.photoURL}} class="rounded-circle" height="30"
+                        alt="" loading="lazy" *ngIf="user.photoURL" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="30"
+                        alt="" loading="lazy" *ngIf="user.photoURL===null" />
+                    </a>
+                    
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink"
+                    style="min-width: 19rem;">
+                    <li>
+                        <div class="px-3 pt-3 d-flex">
+                            <img src={{user.photoURL}} class="rounded-circle me-3"
+                                height="40" alt="" loading="lazy" *ngIf="user.photoURL" />
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle me-3"
+                            height="40" alt="" loading="lazy" *ngIf="user.photoURL===null" />
+                            <div>
+                                <h6 class="mb-0"> {{user.displayName}} </h6>
+                                <p class="mb-2"> {{user.email}} </p>
+                                <a class="mb-0" href="">Manage your Google Account</a>
+                            </div>
+                        </div>
+                        <hr class="mb-2">
+                    </li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle fa-fw me-3"></i><span>Your
+                            channel</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-dollar-sign fa-fw me-3"></i><span>Paid
+                            memberships</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-play-circle fa-fw me-3"></i><span>YouTube
+                            Studio</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-users-cog fa-fw me-3"></i><span>Switch
+                            account</span><i class="fas fa-chevron-right float-end mt-1"></i></a></li>
+                    <li><a href="#" class="dropdown-item" (click)="onLogout()"><i class="fas fa-sign-out-alt me-3"></i><span>Sign out</span></a>
+                    </li>
+                    <hr class="my-2">
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-sun fa-fw me-3"></i><span>Appearance: Device
+                            theme</span><i class="fas fa-chevron-right float-end mt-1"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-language fa-fw me-3"></i><span>Language:
+                            English</span><i class="fas fa-chevron-right float-end mt-1"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-globe fa-fw me-3"></i><span>Location: United
+                            Kingdom</span><i class="fas fa-chevron-right float-end mt-1"></i></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw me-3"></i><span>Settings</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt fa-fw me-3"></i><span>Your data in
+                            YouTube</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i
+                            class="fas fa-question-circle fa-fw me-3"></i><span>Help</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-comment-alt fa-fw me-3"></i><span>Send
+                            feedback</span></a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-keyboard fa-fw me-3"></i><span>Keyboard
+                            shortcuts</span></a></li>
+                    <hr class="my-2">
+                    <li><a class="dropdown-item mb-2" href="#"><span>Restricted Mode: Off</span><i
+                            class="fas fa-chevron-right float-end mt-1"></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ng-template #login>
+                <ul class="navbar-nav d-flex align-items-center flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" [routerLink]="['/login']" >Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" [routerLink]="['/register']">Register</a>
+                    </li>
+                </ul>
+            </ng-template>
+        </div>
+        <!-- Container wrapper -->
+        
+        </nav>
+        <!-- Navbar -->
+    </header>
+<!--Main Navigation-->

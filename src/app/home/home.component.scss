@@ -1,0 +1,11 @@
+.container-spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    
+    .spinner-border{
+        height: 7rem;
+        width: 7rem;
+    }
+}
