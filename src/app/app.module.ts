@@ -7,7 +7,6 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { ContainerAppComponent } from './componentes/container-app/container-app.component';
 import { NuevoProductoComponent } from './componentes/productos/nuevo-producto/nuevo-producto.component';
 import { NuevoProductoModule } from './componentes/productos/nuevo-producto/nuevo-producto.module';
-import { ProductoComponent } from './componentes/productos/producto/producto.component'
 
 //Firebase storage y autenticación 
 //storage
@@ -36,6 +35,7 @@ import { MaterialModule } from './material.module';
 import { ModalComponent } from './componentes/modal/modal.component';
 import { EditarProductoComponent } from './componentes/productos/editar-producto/editar-producto.component';
 import { EditarProductoModule } from './componentes/productos/editar-producto/editar-producto.module';
+import { DetallesProductosComponent } from './componentes/productos/detalles-productos/detalles-productos.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,9 @@ import { EditarProductoModule } from './componentes/productos/editar-producto/ed
     NavbarComponent,
     ContainerAppComponent,
     NuevoProductoComponent,
-    ProductoComponent,
     ModalComponent,
-    EditarProductoComponent
+    EditarProductoComponent,
+    DetallesProductosComponent
   ],
   imports: [
     BrowserModule,

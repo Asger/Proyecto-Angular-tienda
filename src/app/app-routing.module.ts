@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContainerAppComponent } from './componentes/container-app/container-app.component';
-import { ProductoComponent } from './componentes/productos/producto/producto.component';
+import { DetallesProductosComponent } from './componentes/productos/detalles-productos/detalles-productos.component';
+
 
 const routes: Routes = [
   {
@@ -15,11 +16,12 @@ const routes: Routes = [
         path:'', redirectTo: '/home', pathMatch: 'full'
       },
       {
-        path:'producto/:id', component:ProductoComponent
+        path:'producto/:id', component:DetallesProductosComponent
       }
     ]
   },
   { path: 'admin', loadChildren: () => import('./componentes/admin/admin.module').then(m => m.AdminModule) },
+  
 ];
 
 @NgModule({

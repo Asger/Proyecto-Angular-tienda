@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit , Input} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Producto } from '../../models/producto.interface';
 import { ProductoService } from '../producto.service';
+import { Producto } from '../../models/producto.interface';
 
 @Component({
   selector: 'app-producto',
@@ -10,14 +9,12 @@ import { ProductoService } from '../producto.service';
   styleUrls: ['./producto.component.scss']
 })
 export class ProductoComponent implements OnInit {
+  //public productos$ : Observable<Producto[]>;
 
-  public producto$: Observable<Producto>;
-
-  constructor(private route:ActivatedRoute, private productoSvc:ProductoService) { }
+  @Input() producto:Producto;
+  constructor(private productoSvc: ProductoService) { }
 
   ngOnInit(){
-    const idProdcuto = this.route.snapshot.params.id;
-    this.producto$ = this.productoSvc.getUnProducto(idProdcuto);
+    //this.productos$ = this.productoSvc.getTodosProductos();
   }
-
 }

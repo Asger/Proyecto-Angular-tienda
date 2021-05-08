@@ -1,30 +1,6 @@
 <div class="row mt-4" *ngIf="productos$ | async as productos; else loading">
     <div class="col-md-3" *ngFor="let producto of productos">
-        <div class="card">
-            
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img
-                    [src]="producto.imagenProducto"
-                    class="img-fluid"
-                />
-                <a href="">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                </a>
-            </div>
-            <div class="card-body">
-                <a class="card-title" [routerLink]="['/producto', producto.id]"> {{producto.nombreProducto}} </a>
-                <!-- <h5 class="card-title">Card title</h5> -->
-                <p class="card-text">
-                    {{producto.informacionProducto}}
-                </p>
-                <hr>
-                <div class="d-inline mx-2" *ngFor="let tag of producto.tagsProducto">
-                    <button type="button" class="btn btn-info btn-sm"> {{tag}} </button>
-                </div>
-                <hr>
-                <a href="#!" class="btn btn-success mt-4">Añadir al carrito</a>
-            </div>
-        </div>
+        <app-producto [producto]="producto"></app-producto>
     </div>
 </div>
 <ng-template #loading> 

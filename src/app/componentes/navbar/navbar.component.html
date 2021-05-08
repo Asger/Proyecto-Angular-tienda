@@ -41,7 +41,7 @@
             <!-- Right links -->
             <ul class="navbar-nav d-flex align-items-center flex-row" *ngIf="user$ | async as user; else login">
 
-                <li class="nav-item" *ngIf="user">
+                <li class="nav-item" *ngIf="authSvc.userData$ | async">
                     <a class="nav-link active" aria-current="page" [routerLink]="['/admin']" >Admin</a>
                 </li>
                 
