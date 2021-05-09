@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
         <img
             [src]="producto.imagenProducto"
@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
         <a class="card-title" [routerLink]="['/producto', producto.id]"> {{producto.nombreProducto}} </a>
-        <!-- <h5 class="card-title">Card title</h5> -->
+        <h5 class="card-title">Card title</h5>
         <p class="card-text">
             {{producto.informacionProducto}}
         </p>
@@ -21,4 +21,26 @@
         <hr>
         <a href="#!" class="btn btn-success mt-4">Añadir al carrito</a>
     </div>
-</div>
+</div> -->
+
+<mat-card class="example-card my-3">
+    <mat-card-header>
+      <mat-card-subtitle> {{producto.nombreProducto}} </mat-card-subtitle>
+    </mat-card-header>
+    <div class="text-center">
+        <a href="">
+            <img mat-card-lg-image [src]="producto.imagenProducto" alt="" class="size-img-produ" [routerLink]="['/producto', producto.id]">
+        </a>
+    </div>
+    <hr class="my-2">
+    <mat-card-content>
+        <mat-card-title> {{producto.informacionProducto}} </mat-card-title>
+        <div *ngFor="let tag of producto.tagsProducto">
+            <mat-card-subtitle> {{tag}} </mat-card-subtitle>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button color="accent" [routerLink]="['/producto', producto.id]">Comprar</button>
+        <button mat-stroked-button >Añadir al carrito</button>
+    </mat-card-actions>
+</mat-card>

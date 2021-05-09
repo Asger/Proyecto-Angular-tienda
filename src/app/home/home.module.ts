@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { ProductoComponent } from '../componentes/productos/producto/producto.component';
+import { MaterialModule } from '../material.module';
 
 
 
@@ -15,7 +16,8 @@ import { ProductoComponent } from '../componentes/productos/producto/producto.co
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }

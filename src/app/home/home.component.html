@@ -1,8 +1,11 @@
-<div class="row mt-4" *ngIf="productos$ | async as productos; else loading">
-    <div class="col-md-3" *ngFor="let producto of productos">
-        <app-producto [producto]="producto"></app-producto>
+<div class="container">
+    <div class="row mt-4" *ngIf="productos$ | async as productos; else loading">
+        <div class="col-md-3" *ngFor="let producto of productos">
+            <app-producto [producto]="producto"></app-producto>
+        </div>
     </div>
 </div>
+
 <ng-template #loading> 
     
     <div class="container-spinner">
